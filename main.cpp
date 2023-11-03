@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstdint>
 
 using namespace std;
 
@@ -11,16 +12,27 @@ int getVectorSum(vector<int>v){
     return sum;
 }
 
-int getAverage(vector<int>v){
+int getAverage(vector<int>v) {
     int sum = getVectorSum(v);
     int num = v.size();
-    int avg = sum/num;
+    int avg = sum / num;
     return avg;
+}
+
+int getMinimum(vector<int>v){
+    int min=INT16_MAX;
+    for (int i =0; i<v.size(); i++){
+        if (v[i]<min){
+            min=v[i];
+        }
+    }
+    return min;
 }
 
 int main() {
     vector<int> v = {1,2,3,4,5,6,7,8,9,10};
     cout<< getVectorSum(v)<< endl;
     cout<< getAverage(v)<<endl;
+    cout<< getMinimum(v)<<endl;
     return 0;
 }
